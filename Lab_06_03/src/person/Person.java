@@ -25,11 +25,8 @@ public class Person {
         this.name = JOptionPane.showInputDialog("Please enter your name?");
         String ageString = JOptionPane.showInputDialog("Please enter your age?");
         this.age = Integer.parseInt(ageString);
-        Grade g1 = new Grade();
-        // JOptionPane.showMessageDialog(null, "Welcome to the Weighted Grade Calc " + this.name + ".");
-        //  g1.readGradeInput();
-        //  g1.calcGrade();
-        // g1.writeGrade();
+        
+    
         System.out.println(this.toString());
     }
 
@@ -93,10 +90,10 @@ public class Person {
     public void writeOutput() {
         System.out.println("Name: " + name);
         System.out.println("Age: " + age);
-        System.out.println("Street: " + getStreet());
-        System.out.println("City: " + getCity());
-        System.out.println("State: " + getState());
-        System.out.println("Zip: " + getZip());
+        System.out.println("Street: " + street);
+        System.out.println("City: " + city);
+        System.out.println("State: " + state);
+        System.out.println("Zip: " + zip);
     }
 
     public boolean equals(Person otherPerson) {

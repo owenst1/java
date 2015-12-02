@@ -86,6 +86,36 @@ public class PersonDemo {
             if (!Teenager.getName().equalsIgnoreCase("A Teenager") || Teenager.getAge() != 15) {
                 System.out.println("Named constructor error Teenager!");
             }
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             answer = JOptionPane.showConfirmDialog(null, "Do you want to run this program again?", "Click Yes or No:", JOptionPane.YES_NO_OPTION);
         } while (answer == JOptionPane.YES_OPTION);
         System.exit(0);
