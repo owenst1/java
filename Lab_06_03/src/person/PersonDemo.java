@@ -21,7 +21,7 @@ public class PersonDemo {
             s1.readPersonInput();
             s1.getName();
 
-            Person s2 = new Person();
+           /** Person s2 = new Person();
             s2.readPersonInput();
 
             if (s1.name.equalsIgnoreCase(s2.name)) {
@@ -41,7 +41,7 @@ public class PersonDemo {
                 ageCompare = (s1.name + " is younger then " + s2.name);
             }
             JOptionPane.showMessageDialog(null, ageCompare);
-
+*/
             Person adult = Person.createAdult();
             //test
             if (!adult.getName().equalsIgnoreCase("An Adult") || adult.getAge() != 21) {
@@ -86,8 +86,6 @@ public class PersonDemo {
             if (!Teenager.getName().equalsIgnoreCase("A Teenager") || Teenager.getAge() != 15) {
                 System.out.println("Named constructor error Teenager!");
             }
-            
-            
             
             
             

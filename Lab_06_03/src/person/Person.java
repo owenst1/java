@@ -5,6 +5,8 @@
  */
 package person;
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,25 +15,46 @@ import javax.swing.JOptionPane;
  */
 public class Person {
 
-    public String name;
-    public int age;
+    private String name;
+    private int age;
     private String street;
     private String city;
     private String state;
     private String zip;
+    private int inch;
+    private int feet;
+    private double height;
+    private double weight;
 
     public void readPersonInput() {
 
         this.name = JOptionPane.showInputDialog("Please enter your name?");
         String ageString = JOptionPane.showInputDialog("Please enter your age?");
-        this.age = Integer.parseInt(ageString);
-        
-    
+        try {
+            this.age = Integer.parseInt(ageString);
+        } catch (NumberFormatException nfe) {
+            System.out.println("Error: NO age inputed");
+            System.exit(0);
+        }
+        this.setStreet(JOptionPane.showInputDialog("Please enter your Street?"));
+        this.setCity(JOptionPane.showInputDialog("Please enter your City?"));
+        this.setState(JOptionPane.showInputDialog("Please enter your State?"));
+        this.setZip(JOptionPane.showInputDialog("Please enter your zip?"));
+        String heightString = JOptionPane.showInputDialog("Please enter your Height in inches?");
+        this.setHeight(Double.parseDouble(heightString));
+        String weightString = JOptionPane.showInputDialog("Please enter your Weight in pound?");
+        this.setWeight(Double.parseDouble(weightString));
+        this.setPerson(name, age);
+        this.setAddress(street, city, state, zip);
+
         System.out.println(this.toString());
+        this.outputAddress();
+        this.outputHeight();
+        this.outputWeight();
     }
 
     public String toString() {
-        return "Name: " + this.name + "\n Age: " + this.age;
+        return "Name: " + name + "\nAge: ";
     }
 
     public Person() {
@@ -87,15 +110,6 @@ public class Person {
         return t;
     }
 
-    public void writeOutput() {
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Street: " + street);
-        System.out.println("City: " + city);
-        System.out.println("State: " + state);
-        System.out.println("Zip: " + zip);
-    }
-
     public boolean equals(Person otherPerson) {
         return this.name.equalsIgnoreCase(otherPerson.getName())
                 && this.age == otherPerson.age;
@@ -103,6 +117,19 @@ public class Person {
 
     public int compareAge(Person otherPerson) {
         return this.age - otherPerson.age;
+    }
+
+    public void outputAddress() {
+        System.out.println("Street: " + this.street + "\nCity: "
+                + this.city + "\nState: " + this.state + "\nZip: " + this.zip);
+    }
+
+    public void outputHeight() {
+        System.out.println("Height: " + this.feet + "' " + this.inch + " '' ");
+    }
+
+    public void outputWeight() {
+        System.out.printf("Weight: %.2f lbs", this.weight);
     }
 
     /**
@@ -124,61 +151,76 @@ public class Person {
         this.age = age;
     }
 
-    /**
-     * @return the street
-     */
-    public String getStreet() {
-        return street;
+    public void setAddress(String state, String zip) {
+        setAddress(null, null, state, zip);
     }
 
-    /**
-     * @param street the street to set
-     */
+    public void setAddress(String city, String state, String zip) {
+        setAddress(null, city, state, zip);
+    }
+
+    public void setAddress(String street, String city, String state, String zip) {
+        if (street == null || street.trim().equals("")) {
+            street = "Unknown";
+        }
+        if (city == null || city.trim().equals("")) {
+            city = "Unknown";
+        }
+        if (state == null || state.trim().equals("")) {
+            System.out.println("State cannot be empty");
+            System.exit(0);
+        }
+        if (zip == null || zip.trim().equals("")) {
+            System.out.println("Zip cannot be empty");
+            System.exit(0);
+        }
+        this.setStreet(street);
+        this.setCity(city);
+        this.setState(state);
+        this.setZip(zip);
+    }
+
     public void setStreet(String street) {
         this.street = street;
     }
 
-    /**
-     * @return the city
-     */
-    public String getCity() {
-        return city;
-    }
-
-    /**
-     * @param city the city to set
-     */
     public void setCity(String city) {
         this.city = city;
     }
 
-    /**
-     * @return the state
-     */
-    public String getState() {
-        return state;
-    }
-
-    /**
-     * @param state the state to set
-     */
     public void setState(String state) {
         this.state = state;
     }
 
-    /**
-     * @return the zip
-     */
-    public String getZip() {
-        return zip;
-    }
-
-    /**
-     * @param zip the zip to set
-     */
     public void setZip(String zip) {
         this.zip = zip;
     }
-    
 
+    public void setHeight(double inch) {
+        this.height = inch;
+    }
+
+    public void setHeight(int inches) {
+
+    }
+
+    public void setHeight(int feet, int inches) {
+
+    }
+
+    public void setHeightCm(double centimeters) {
+
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public void setWeight(int pounds) {
+
+    }
+
+    public void setWeightKilo(double kilograms) {
+
+    }
 }
