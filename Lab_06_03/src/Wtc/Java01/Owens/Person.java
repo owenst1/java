@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package person;
+package Wtc.Java01.Owens;
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.swing.JOptionPane;
 
 /**
@@ -46,7 +44,7 @@ public class Person {
         this.setWeight(Double.parseDouble(weightString));
         this.setPerson(name, age);
         this.setAddress(street, city, state, zip);
-
+        this.inchToFeet(height);
         System.out.println(this.toString());
         this.outputAddress();
         this.outputHeight();
@@ -124,12 +122,18 @@ public class Person {
                 + this.city + "\nState: " + this.state + "\nZip: " + this.zip);
     }
 
+    public void inchToFeet(double in) {
+        this.feet = (int)(Math.floor(in / 12));
+        this.inch= (int)(in % 12);
+
+    }
+
     public void outputHeight() {
-        System.out.println("Height: " + this.feet + "' " + this.inch + " '' ");
+        System.out.println("Height: " + this.feet + "' " + this.inch + "\" ");
     }
 
     public void outputWeight() {
-        System.out.printf("Weight: %.2f lbs", this.weight);
+        System.out.printf("Weight: %.2f lbs\n", this.weight);
     }
 
     /**
@@ -201,26 +205,26 @@ public class Person {
     }
 
     public void setHeight(int inches) {
-
+        this.height = (double) inches;
     }
 
     public void setHeight(int feet, int inches) {
-
+        this.height = (feet * 12) + inches;
     }
 
     public void setHeightCm(double centimeters) {
-
+        this.height = (centimeters * .039370);
     }
 
-    public void setWeight(double weight) {
-        this.weight = weight;
+    public void setWeight(double pounds) {
+        this.weight = pounds;
     }
 
     public void setWeight(int pounds) {
-
+        this.weight = pounds;
     }
 
-    public void setWeightKilo(double kilograms) {
-
+    public void setWeightKilo(double kg) {
+        this.weight = kg * 2.2046;
     }
 }

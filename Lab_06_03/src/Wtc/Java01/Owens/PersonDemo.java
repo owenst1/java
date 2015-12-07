@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package person;
+package Wtc.Java01.Owens;
 
 import javax.swing.JOptionPane;
 
@@ -15,7 +15,7 @@ public class PersonDemo {
 
     public static void main(String[] args) {
         int answer;
-        JOptionPane.showMessageDialog(null, "Welcome to the person compare.");
+        JOptionPane.showMessageDialog(null, "Welcome to the person lab.");
         do {
             Person s1 = new Person();
             s1.readPersonInput();
